@@ -1,0 +1,15 @@
+
+:root{
+  --accent: #2f855a;       /* green accent for buttons */
+  --accent-contrast: #ffffff;
+  --card-bg: #ffffff;      /* plain white cards */
+  --card-border: #e6e6e6;  /* subtle border */
+  --page-bg: linear-gradient(90deg,#eef7f6 0%, #fbf5e7 100%);
+}
+html,body,#root { height:100%; margin:0; }
+body {
+  font-family: Inter, Roboto, Arial, sans-serif;
+  background: var(--page-bg);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}

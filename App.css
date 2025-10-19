@@ -1,0 +1,191 @@
+/* ...existing code... */
+.App {
+  max-width: 1100px;
+  margin: 28px auto;
+  padding: 20px;
+  text-align: center;
+}
+h1 {
+  color: #05685a;
+  margin-bottom: 8px;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.page-info {
+  background: #fff;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(6, 6, 6, 0.06);
+  margin: 12px auto;
+  max-width: 850px;
+}
+.controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 18px 0;
+  flex-wrap: wrap;
+}
+.search-input {
+  padding: 10px 12px;
+  width: 320px;
+  border-radius: 8px;
+  border: 1px solid #bfcfc8;
+  outline: none;
+  box-shadow: none;
+}
+.controls select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #bfcfc8;
+}
+.sort-buttons {
+  display: inline-flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+.sort-buttons button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  background: #0b6b55;
+  color: #fff;
+  cursor: pointer;
+}
+.sort-buttons .active {
+  background: #074f40;
+}
+
+/* grid + cards */
+.grid, .companies-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+  margin-top: 18px;
+}
+/* Keep your current card styles */
+.card, .company-card {  
+  background: var(--card-bg, #fff);  
+  padding: 18px 16px;  
+  border-radius: 12px;  
+  box-shadow: 0 8px 24px rgba(6,6,6,0.06);  
+  min-height: 220px;  
+  display: flex;  
+  flex-direction: column;  
+  align-items: center;  
+  justify-content: flex-start;  
+  transition: transform 180ms ease, box-shadow 180ms ease;  
+  position: relative;  
+  overflow: hidden;  
+}
+
+/* --- Add this section --- */
+
+/* Card background colors by brand */
+.company-card[data-company="Google"] {
+  background-color: #e8f0fe;
+}
+
+.company-card[data-company="Microsoft"] {
+  background-color: #f3f2f1;
+}
+
+.company-card[data-company="Amazon"] {
+  background-color: #fffbf0;
+}
+
+.company-card[data-company="Netflix"] {
+  background-color: #fff1f1;
+}
+
+.company-card[data-company="Spotify"] {
+  background-color: #eafaf1;
+}
+
+.company-card[data-company="Intel"] {
+  background-color: #e7f3ff;
+}
+
+.company-card[data-company="Cisco"] {
+  background-color: #f0f9ff;
+}
+
+/* Hover effect */
+.company-card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+.card:hover, .company-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(6,6,6,0.12);
+}
+.card::before, .company-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 6px;
+  background: transparent; /* top border color set inline in React */
+}
+
+/* logo */
+.company-logo, .card .company-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+  margin: 8px auto 12px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 6px 12px rgba(6,6,6,0.06);
+}
+
+/* text */
+h3 {
+  margin: 8px 0 6px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #0b4340;
+}
+.muted, .company-card p, .card p {
+  color: #444;
+  margin: 6px 0;
+}
+
+/* pagination */
+.pagination {
+  margin: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.pagination button {
+  background: var(--accent, #00796b);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.pagination button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* empty state */
+.empty {
+  padding: 30px;
+  color: #666;
+  text-align: center;
+}
+
+/* responsive tweaks */
+@media (max-width: 520px) {
+  .search-input { width: 100%; max-width: 320px; }
+  h1 { font-size: 30px; }
+  .card, .company-card { min-height: 180px; padding: 14px; }
+}
